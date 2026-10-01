@@ -19,3 +19,6 @@ data/energy.tmp
 site/data.json
 site/summary.json
 site/colorado-electricity-monthly.csv
+
+# Local editor/preview settings
+.claude/

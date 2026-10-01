@@ -1,5 +1,7 @@
 # Colorado Energy Tracker — Project Plan
 
+**Status (2026-09-30):** Phases 0–7 are built and tested locally. Remaining: create the GitHub repo, add the API keys as repository secrets, push, and turn on GitHub Pages (see "What I need to do" at the bottom).
+
 An automated reporting site that tracks how Colorado's electricity is generated (coal, natural gas, wind, solar, hydro) and what it costs, using free public data from the U.S. Energy Information Administration (EIA).
 
 ## Why this project
@@ -128,4 +130,6 @@ colorado-energy-tracker/
 
 - [x] Get a free EIA API key: https://www.eia.gov/opendata/
 - [ ] Create an empty GitHub repo named `colorado-energy-tracker`
-- [ ] Get a Claude API key (needed in Phase 5): https://console.anthropic.com/
+- [ ] Add `EIA_API_KEY` as a repository secret (Settings → Secrets and variables → Actions)
+- [ ] Optional: get a Claude API key (https://console.anthropic.com/) and add it as the `ANTHROPIC_API_KEY` secret
+- [ ] Push the code, then set Settings → Pages → Source to **GitHub Actions**
