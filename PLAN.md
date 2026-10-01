@@ -33,7 +33,7 @@ All from the EIA's free API (v2). Requires a free API key from https://www.eia.g
 | Electric power operational data | Electricity generated in Colorado, by fuel type | Monthly |
 | Retail sales | Average electricity price in Colorado, by sector (residential, commercial, industrial) | Monthly |
 
-The exact API routes, fuel-type codes, and how far back the data goes get confirmed in Phase 2. Nothing about the data is assumed until it has been checked against the real API.
+Both datasets were checked against the live API: monthly data from January 2001 through July 2026. Exact routes, codes, and metric definitions are in [docs/requirements.md](docs/requirements.md).
 
 ## Tech stack
 
@@ -126,6 +126,6 @@ colorado-energy-tracker/
 
 ## What I need to do
 
-- [ ] Get a free EIA API key: https://www.eia.gov/opendata/
+- [x] Get a free EIA API key: https://www.eia.gov/opendata/
 - [ ] Create an empty GitHub repo named `colorado-energy-tracker`
 - [ ] Get a Claude API key (needed in Phase 5): https://console.anthropic.com/
