@@ -36,7 +36,7 @@ DATASETS = {
 
 def api_key():
     load_dotenv(ROOT / ".env")
-    key = os.getenv("EIA_API_KEY")
+    key = (os.getenv("EIA_API_KEY") or "").strip()  # a pasted key can carry a trailing newline
     if not key:
         raise SystemExit("EIA_API_KEY is missing. Copy .env.example to .env and add your key.")
     return key
