@@ -1,0 +1,14 @@
+# Secrets
+.env
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Raw API responses (rebuilt by the pipeline)
+data/raw/
+
+# macOS
+.DS_Store
