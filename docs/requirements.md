@@ -30,7 +30,8 @@ Both come from the U.S. Energy Information Administration (EIA) API v2. Coverage
 
 - **Units:** generation is reported in thousand megawatt-hours, which equals **gigawatt-hours (GWh)**. Prices are in **cents per kilowatt-hour**.
 - **Data lag:** the EIA publishes monthly data about two to three months late. On 2026-09-30 the latest month is July 2026. The dashboard must always say which month the data runs through.
-- **Revisions:** the EIA revises recent months after first publishing them. Each pipeline run re-fetches the most recent 24 months and replaces what's stored, instead of only adding new months.
+- **Revisions:** the EIA revises recent months after first publishing them. Each pipeline run downloads the full history (only about 4,400 rows) and rebuilds the database from scratch, so revisions are always picked up.
+- **Independent check:** each run also compares every complete year's total against the EIA's separately published Colorado state profile (`state-electricity-profiles/source-disposition`). On 2026-09-30, all 24 years (2001–2024) matched exactly.
 
 ## Metric definitions
 
@@ -75,7 +76,7 @@ The share of total generation from each source:
 - The API returns numbers as text. Convert them to numbers, and stop with an error if any value can't be converted.
 - A fuel type with no row for a month means "no data," not zero. Store it as missing.
 - Small negative values are real (pumped storage and "other" can be net users of power) and are kept.
-- **Check on every run:** the five mix categories plus "Other" must add up to the total, and where `REN` is published it must equal `AOR + HYC`, within 0.1 GWh. If either check fails, the run stops before anything is published.
+- **Checks on every run:** the five mix categories plus "Other" must add up to the total, and where `REN` is published it must equal `AOR + HYC`, within 0.1 GWh. If either check fails, the run stops before anything is published.
 
 ## Spot check (July 2026, from the live API)
 
