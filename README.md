@@ -2,7 +2,7 @@
 
 An automated dashboard showing how Colorado's electricity is generated and what it costs, rebuilt every month from U.S. Energy Information Administration (EIA) data.
 
-**Live site:** https://alexfoucher.github.io/colorado-energy-tracker/
+**Live site:** https://lesfoucher.github.io/colorado-energy-tracker/
 
 ![Dashboard showing Colorado's renewable share, generation by source since 2001, and price trends](docs/screenshot.png)
 
