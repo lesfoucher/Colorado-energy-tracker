@@ -81,5 +81,5 @@ docs/       requirements.md (metric definitions and data decisions)
 
 ## Credits
 
-- The dashboard front end ([`site/index.html`](site/index.html)) was built with [Claude](https://www.anthropic.com/claude), Anthropic's AI model, using Claude Code.
+- Built by Alex Foucher with help from [Claude](https://www.anthropic.com/claude), Anthropic's AI model, using Claude Code.
 - Data: U.S. Energy Information Administration, [Open Data API](https://www.eia.gov/opendata/). Public domain.
