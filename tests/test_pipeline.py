@@ -167,3 +167,10 @@ def test_price_change(db):
     r = one(db, "SELECT * FROM v_price WHERE period = '2026-07' AND sector = 'RES'")
     assert r["price_cents_kwh"] == 17.0
     assert r["price_change_pct"] == pytest.approx(6.25)
+
+
+def test_rolling_renewable_share(db):
+    rows = db.execute("SELECT renewable_share_12m_pct FROM v_renewable_trend ORDER BY period").fetchall()
+    assert rows[10][0] is None
+    # 2024: renewable 200 of 500 every month = 40%
+    assert rows[11][0] == pytest.approx(40.0)

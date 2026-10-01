@@ -92,3 +92,14 @@ FROM retail AS cur
 LEFT JOIN retail AS prev
   ON prev.sector = cur.sector
  AND prev.period = printf('%04d', CAST(substr(cur.period, 1, 4) AS INTEGER) - 1) || substr(cur.period, 5);
+
+-- Renewable share over the last 12 months (sum of renewable / sum of total), which smooths out
+-- seasonal swings in wind, solar, and hydro. NULL until 12 months of data exist.
+CREATE VIEW v_renewable_trend AS
+SELECT
+    period,
+    renewable_share_pct,
+    CASE WHEN COUNT(*) OVER w = 12
+         THEN 100.0 * SUM(renewable_gwh) OVER w / SUM(total_gwh) OVER w END AS renewable_share_12m_pct
+FROM v_mix
+WINDOW w AS (ORDER BY period ROWS BETWEEN 11 PRECEDING AND CURRENT ROW);
